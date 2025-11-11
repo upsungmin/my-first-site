@@ -38,8 +38,8 @@ export function Hero() {
   const defaultInfo = {
     greeting: "안녕하세요,",
     name: "위성민",
-    title: "단국대 학생입니다",
-    description: "프롭테크 기술로 부동산 시장을 분석할려합니다",
+    title: "- 가치와 데이터를 연결하고싶은 예비 감정평가사",
+    description: " 전통적인 경매분석 경험 위에 빅데이터라는 새로운 시각을 더하여 부동산의 본질적인 가치를 찾으려 노력하고 있습니다. 정확한 감정평가로 시장에 기여하는 것이 제 목표입니다.\n\n",
     profileImage: "/uploads/hero-profile-1761477237286.png",
     backgroundImage: "",
     backgroundVideo: "",
