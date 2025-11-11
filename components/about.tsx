@@ -99,12 +99,12 @@ export function About() {
     title: "소개",
     subtitle: "당신의 전문성과 열정을 소개해주세요.",
     background: {"image":"","video":"","color":"","opacity":0.1},
-    experienceCards: [{"icon":"briefcase","title":"회사명","period":"2020 - 현재","description":"직무 및 역할"},{"icon":"graduation","title":"학교명","period":"2016 - 2020","description":"전공 및 학위"},{"icon":"award","title":"자격증/수상","period":"2021","description":"설명을 입력하세요"}],
-    skills: [{"icon":"star","title":"새 스킬","description":"스킬 설명"}],
+    experienceCards: [{"icon":"graduation","title":"단국대학교","period":"2022 - 현재","description":"도시계획부동산학부"},{"icon":"trophy","title":"","period":"2016 - 2020","description":"전공 및 학위"},{"icon":"award","title":"자격증/수상","period":"2021","description":"설명을 입력하세요"}],
+    skills: [{"icon":"star","title":"목표 지향성 및 강한 실행력","description":"목표를 성과로 만드는 실행력 축구선수로서 '강원도 대회 우승'이라는 목표를 달성했던 끈기와 열정은 저의 가장 큰 자산입니다. 이러한 실행력은 '투자자산운용사' 취득과 '공인중개사 1차' 합격이라는 학문적 성과로 이어졌습니다. 저는 목표한 것은 반드시 이뤄냅니다."},{"icon":"star","title":"데이터 분석 및 시장 이해","description":"데이터와 법률에 근거한 분석력 미래의 감정평가사는 '감'이 아닌 '데이터'로 말해야 한다고 믿습니다. 투자자산운용사로서 배운 거시 경제 지식과 공인중개사로서 갖춘 법률 지식을 바탕으로, 경매분석과 빅데이터를 활용한 시장 분석에 집중하고 있습니다."},{"icon":"star","title":"압박감 속에서의 빠른 판단력","description":"복잡함 속에서 핵심을 꿰뚫는 판단력 필드 위에서 상대방을 분석하고 승리를 계획했던 경험은, 복잡한 시장 데이터 속에서 '진짜 가치'를 찾아내는 감정평가사의 통찰력과 맞닿아 있습니다. 어떤 압박 속에서도 흔들리지 않고 최적의 판단을 내릴 자신이 있습니다.\n"}],
     storyTitle: "나의 이야기",
     story: ["새로운 문단"],
     storyImage: "",
-    hobbies: ["📚 독서","☕ 카페 투어","🎨 전시회 관람","✈️ 여행"]
+    hobbies: ["☕ 경매 물건 찾아보기","🏃 운동 ","📚 독서","🎨 전시회 관람"]
   }
   
   const [aboutInfo, setAboutInfo] = useState(defaultInfo)
