@@ -102,7 +102,7 @@ export function About() {
     experienceCards: [{"icon":"briefcase","title":"회사명","period":"2020 - 현재","description":"직무 및 역할"},{"icon":"graduation","title":"학교명","period":"2016 - 2020","description":"전공 및 학위"},{"icon":"award","title":"자격증/수상","period":"2021","description":"설명을 입력하세요"}],
     skills: [{"icon":"star","title":"새 스킬","description":"스킬 설명"}],
     storyTitle: "나의 이야기",
-    story: [],
+    story: ["새로운 문단"],
     storyImage: "",
     hobbies: ["📚 독서","☕ 카페 투어","🎨 전시회 관람","✈️ 여행"]
   }
