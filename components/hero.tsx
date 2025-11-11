@@ -195,7 +195,7 @@ export function Hero() {
                   storageKey="hero-title"
                 />
               </p>
-              <p className="text-x1 mb-8 text-muted-foreground">
+              <p className="text-xl mb-8 text-muted-foreground">
                 <EditableText
                   value={heroInfo.description}
                   onChange={(value) => updateHeroInfo('description', value)}
