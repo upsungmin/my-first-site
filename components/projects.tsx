@@ -8,6 +8,7 @@ import { EditableMedia } from "@/components/editable/editable-media"
 import { EditableBackground } from "@/components/editable/editable-background"
 import { useInlineEditor } from "@/contexts/inline-editor-context"
 import { COMMON_STYLES } from "@/lib/constants"
+import ProjectModal from './project-modal'
 
 export function Projects() {
   const { getData, saveData, isEditMode, saveToFile } = useInlineEditor()
@@ -18,11 +19,12 @@ export function Projects() {
     initialDisplay: 4,
     loadMoreCount: 3,
     background: {"image":"","video":"","color":"","opacity":0.1},
-    projects: [{"image":"/uploads/project-1762834887680-1762834889268.png","video":"","title":"상업지구 물건 경매 투자 분석","description":"어쩌고 이러하다\n"},{"image":"/uploads/project-1762834948262-1762834948314.png","video":"","title":"스타벅스 효과 2.0 (경상북도 상주시) ","description":"\"스세권\"의 가치는 공시지가보다 빠른가?: 스타벅스 입점 시그널과 상업용지 가치 지표의 시차 분석\n2. 연구 배경 (왜 이 프로젝트를 하는가?)\n'스세권'(스타벅스+역세권)은 부동산 시장의 가치를 높이는 핵심 요인으로 통용되나, 이는 대부분 '감'이나 '통념'에 의존해왔습니다.\n전통적인 감정평가는 '공시지가' 등 1년 단위의 **'느린 데이터(Lagging Indicator)'**를 활용합니다.\n반면, 프롭테크 기업들은 네이버 검색량, 실거래가 등 **'빠른 데이터(Leading Indicator)'**를 활용하여 시장의 실시간 반응을 포착합니다.\n[문제 제기] 만약 '빠른 데이터'가 '느린 데이터'보다 6개월~1년 먼저 가치 상승을 반영한다면? 전통적 방식만으로는 시장의 '진짜 가치'를 놓칠 수 있습니다.\n3. 연구 목적 및 핵심 가설\n목적: '스타벅스 효과'를 데이터로 검증하고, 이 효과가 **'프롭테크 데이터'**와 '전통적 데이터' 중 어디에 더 빨리 반영되는지 시차(Time-Gap)를 규명합니다.\n핵심 가설:\n(가설 1) 스타벅스 입점은 주변 상업용지의 가치에 긍정적인 영향을 미친다.\n(가설 2) [프롭테크 가설] 이러한 가치 상승 시그널은 '공시지가'(느린 데이터)보다 '네이버 검색량' 및 '실거래가'(빠른 데이터)에 최소 6개월 이상 선행하여 나타날 것이다.\n4. 연구 방법 및 사용 데이터 (2주 전략)\n범위: 전국이 아닌 **'사례 연구(Case Study)'**로 한정.\n(예) 최근 5~7년 내 입점한 신도시(동탄, 판교) 1곳, 구도심(마포, 성수) 1곳 등 2~3개 사례 선정\n기준점(D-Day): 각 사례별 스타벅스 1호점의 '정확한 개점일' 확정\n수집 데이터 (3종):\n① \"빠른 데이터\" (관심도): 네이버 데이터랩 - \"OO동 스타벅스\" 키워드 월별 검색량 (D-Day 전후 2년)\n② \"중간 데이터\" (시장가): 국토교통부 - 주변 상업시설 '월별 실거래가' 및 '월세' (D-Day 전후 2년)\n③ \"느린 데이터\" (평가가): 국토교통부 - 주변 '표준지 공시지가' (D-Day 전후 2년)\n분석: 3가지 데이터를 '개점일' 기준의 타임라인 그래프로 시각화하고, 각 지표가 반응하는 시점을 비교 분석.\n5. 기대 효과 및 의의 (포트폴리오 핵심)\n(논리적 검증) 시장의 통념(\"스세권\")을 데이터로 검증하는 예비 감정평가사의 분석 역량 증명.\n[프롭테크 역량] '공시지가'만 보는 것이 아니라, '네이버 검색량' 같은 **'대체 데이터(Alternative Data)'**를 활용하여 시장의 선행 지표를 찾아내는 프롭테크적 시각을 어필.\n(최종 결론) \"미래의 감정평가사는 전통적 방식과 프롭테크 기술을 모두 활용하여 '느린 데이터'와 '빠른 데이터'의 격차(Gap)를 해독해야 한다\"는 전문적인 인사이트 제시.\n"},{"image":"/uploads/project-1762840776619-1762840778672.png","video":"","title":"경매 물건 투자 보고서","description":"ㅁㅁㅁㅁㅁㅁㅁㅁㅁ"}] as Array<{ image: string; video?: string; title: string; description: string }>
-  }
+    projects: [{"image":"/uploads/project-1762834887680-1762834889268.png","video":"","title":"상업지구 물건 경매 투자 분석","description":"어쩌고 이러하다\n"},{"image":"/uploads/project-1762834948262-1762834948314.png","video":"","title":"스타벅스 효과 2.0 (경상북도 상주시) ","detailedDescription":"\"스세권\"의 가치는 공시지가보다 빠른가?: 스타벅스 입점 시그널과 상업용지 가치 지표의 시차 분석\n2. 연구 배경 (왜 이 프로젝트를 하는가?)\n'스세권'(스타벅스+역세권)은 부동산 시장의 가치를 높이는 핵심 요인으로 통용되나, 이는 대부분 '감'이나 '통념'에 의존해왔습니다.\n전통적인 감정평가는 '공시지가' 등 1년 단위의 **'느린 데이터(Lagging Indicator)'**를 활용합니다.\n반면, 프롭테크 기업들은 네이버 검색량, 실거래가 등 **'빠른 데이터(Leading Indicator)'**를 활용하여 시장의 실시간 반응을 포착합니다.\n[문제 제기] 만약 '빠른 데이터'가 '느린 데이터'보다 6개월~1년 먼저 가치 상승을 반영한다면? 전통적 방식만으로는 시장의 '진짜 가치'를 놓칠 수 있습니다.\n3. 연구 목적 및 핵심 가설\n목적: '스타벅스 효과'를 데이터로 검증하고, 이 효과가 **'프롭테크 데이터'**와 '전통적 데이터' 중 어디에 더 빨리 반영되는지 시차(Time-Gap)를 규명합니다.\n핵심 가설:\n(가설 1) 스타벅스 입점은 주변 상업용지의 가치에 긍정적인 영향을 미친다.\n(가설 2) [프롭테크 가설] 이러한 가치 상승 시그널은 '공시지가'(느린 데이터)보다 '네이버 검색량' 및 '실거래가'(빠른 데이터)에 최소 6개월 이상 선행하여 나타날 것이다.\n4. 연구 방법 및 사용 데이터 (2주 전략)\n범위: 전국이 아닌 **'사례 연구(Case Study)'**로 한정.\n(예) 최근 5~7년 내 입점한 신도시(동탄, 판교) 1곳, 구도심(마포, 성수) 1곳 등 2~3개 사례 선정\n기준점(D-Day): 각 사례별 스타벅스 1호점의 '정확한 개점일' 확정\n수집 데이터 (3종):\n① \"빠른 데이터\" (관심도): 네이버 데이터랩 - \"OO동 스타벅스\" 키워드 월별 검색량 (D-Day 전후 2년)\n② \"중간 데이터\" (시장가): 국토교통부 - 주변 상업시설 '월별 실거래가' 및 '월세' (D-Day 전후 2년)\n③ \"느린 데이터\" (평가가): 국토교통부 - 주변 '표준지 공시지가' (D-Day 전후 2년)\n분석: 3가지 데이터를 '개점일' 기준의 타임라인 그래프로 시각화하고, 각 지표가 반응하는 시점을 비교 분석.\n5. 기대 효과 및 의의 (포트폴리오 핵심)\n(논리적 검증) 시장의 통념(\"스세권\")을 데이터로 검증하는 예비 감정평가사의 분석 역량 증명.\n[프롭테크 역량] '공시지가'만 보는 것이 아니라, '네이버 검색량' 같은 **'대체 데이터(Alternative Data)'**를 활용하여 시장의 선행 지표를 찾아내는 프롭테크적 시각을 어필.\n(최종 결론) \"미래의 감정평가사는 전통적 방식과 프롭테크 기술을 모두 활용하여 '느린 데이터'와 '빠른 데이터'의 격차(Gap)를 해독해야 한다\"는 전문적인 인사이트 제시.\n"},{"image":"/uploads/project-1762840776619-1762840778672.png","video":"","title":"경매 물건 투자 보고서","description":"ㅁㅁㅁㅁㅁㅁㅁㅁㅁ"}] as Array<{ image: string; video?: string; title: string; description?: string; detailedDescription?: string }>
+}
 
   const [projectsInfo, setProjectsInfo] = useState(defaultInfo)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedProject, setSelectedProject] = useState<any | null>(null)
   const [imageAspects, setImageAspects] = useState<{ [key: string]: string }>({})
   const [showProjectModal, setShowProjectModal] = useState(false)
   const [displayCount, setDisplayCount] = useState(defaultInfo.initialDisplay)
@@ -236,7 +238,7 @@ export function Projects() {
                   <div 
                     key={index}
                     className="group flex flex-col relative cursor-pointer"
-                    onClick={() => !isEditMode && setSelectedImage(project.video || project.image)}
+                    onClick={() => !isEditMode && setSelectedProject(project)}
                   >
                     {isEditMode && (
                       <button
@@ -283,16 +285,42 @@ export function Projects() {
                           storageKey={`project-${index}-title`}
                         />
                       </h3>
-                      <p className="text-sm text-muted-foreground">
-                        <EditableText
-                          value={project.description || "프로젝트 설명"}
-                          onChange={(value) => updateProject(index, 'description', value)}
-                          storageKey={`project-${index}-description`}
-                          multiline
-                        />
-                      </p>
-                    </div>
-                  </div>
+                      {/* --- '프로젝트 2' (index 1)에만 '이쁜' 설명 적용 --- */}
+{index === 1 ? (
+  // ▼▼▼ 2번째 프로젝트(스타벅스)는 이걸 보여줌 ▼▼▼
+  <div className="mt-2 text-sm text-muted-foreground space-y-2">
+    <p>
+      '스세권'의 효과를 '빠른 데이터(검색량)'와 '느린 데이터(공시지가)'로 비교 분석했습니다.
+    </p>
+    <ul className="list-disc list-inside pl-2 space-y-1">
+      <li>
+        <strong>분석 결과:</strong> 개점 3개월 만에 공시지가 <strong>+15.0%</strong> 폭등.
+      </li>
+      <li>
+        <strong>핵심:</strong> '빠른 데이터'가 '느린 데이터'를 1년 가까이 선행함을 증명.
+      </li>
+    </ul>
+    <p>
+      <strong>사용한 기술:</strong> 
+      <span className="font-semibold text-sky-400"> 
+        네이버 데이터랩, 부동산원 공시지가 분석
+      </span>
+    </p>
+  </div>
+) : (
+  // ▼▼▼ 나머지 프로젝트(1, 3, 4...)는 원래대로 이걸 보여줌 ▼▼▼
+  <p className="text-sm text-muted-foreground">
+    <EditableText
+      value={project.description || "프로젝트 설명"}
+      onChange={(value) => updateProject(index, 'description', value)}
+      storageKey={`project-${index}-description`}
+      multiline
+    />
+  </p>
+)}
+{/* --- 조건문 끝 --- */}
+</div>
+</div>
                 )
               })}
               
@@ -741,6 +769,12 @@ export function Projects() {
             </div>
           </div>
         </div>
+      )}
+      {selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
       )}
     </>
   )
