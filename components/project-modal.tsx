@@ -1,23 +1,24 @@
-import { X } from 'lucide-react'
-import React from 'react'
+import { X } from 'lucide-react';
+import React from 'react';
 
-// 이 팝업(모DAL)이 어떤 정보를 받아야 하는지 정의
+// ProjectModal 컴포넌트의 props 타입을 정의합니다.
 interface ProjectModalProps {
   project: {
-    title: string
-    image?: string
-    video?: string
-    detailedDescription?: string // 우리가 만든 '긴 설명'
-  }
-  onClose: () => void // '닫기' 버튼을 누르면 실행될 함수
+    title: string;
+    descriptionHtml: string;
+    image?: string;
+    video?: string;
+    pdfUrl?: string; // PDF 다운로드 URL을 추가했습니다.
+  };
+  onClose: () => void;
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  // '긴 설명'이 없으면 "상세 설명 없음"을 표시
-  const descriptionHtml = project.detailedDescription
-    ? project.detailedDescription.replace(/\n/g, '<br />') // \n (줄바꿈)을 <br /> (HTML 줄바꿈)으로 변경
-    : '<p>상세 설명이 없습니다.</p>'
-
+  if (!project) return null;
+  
+const descriptionHtml = project.detailedDescription
+    ? project.detailedDescription.replace(/\n/g, '<br />')
+    : '<p>상세 설명이 없습니다.</p>';
   return (
     // 1. 어두운 배경 (클릭하면 닫힘)
     <div
@@ -53,11 +54,33 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
           )}
 
-          {/* "긴 설명" (A+ 리포트)을 HTML로 "이쁘게" 보여줌 */}
+          {/* 상세 설명 내용 출력 */}
           <div
             className="prose prose-sm dark:prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: descriptionHtml }}
           />
+
+          {/* PDF 다운로드 버튼 출력 */}
+          {project.pdfUrl && (
+            <div style={{ marginTop: '40px', marginBottom: '40px', textAlign: 'center' }}>
+                <a 
+                    href={project.pdfUrl} 
+                    download 
+                    style={{ 
+                        padding: '12px 25px', 
+                        backgroundColor: '#DC3545', 
+                        color: 'white',
+                        borderRadius: '8px',
+                        textDecoration: 'none',
+                        fontWeight: 'bold',
+                        display: 'inline-block',
+                        fontSize: '16px' 
+                    }}
+                >
+                    4번 프로젝트 PDF 파일 다운로드 ({project.title})
+                </a>
+            </div>
+          )}
         </div>
 
         {/* 5. 팝업 푸터 (닫기 버튼) */}
@@ -71,7 +94,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectModal
+export default ProjectModal;
