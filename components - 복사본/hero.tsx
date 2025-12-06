@@ -89,14 +89,14 @@ export function Hero() {
   const { getData, saveData, isEditMode, saveToFile, saveFieldToFile } = useInlineEditor()
   
   // 초기 데이터 - 배열 형태로 변경
-  const defaultSocialLinks = [{"name":"instagram","icon":"instagram","url":"https://www.instagram.com/accounts/onetap/?next=%2F"},{"name":"naver","icon":"mail","url":"gmrgud03040@naver.com"}]
+  const defaultSocialLinks = [{"name":"YouTube","icon":"youtube","url":"https://youtube.com/@username"}]
   
   const defaultInfo = {
-    greeting: "예비 감정평가사",
+    greeting: "안녕하세요,",
     name: "위성민",
-    title: "남다른 열정으로 가치와 데이터를 연결하겠습니다.",
-    description: "경매 분석의 정통성과 빅데이터의 통찰력으로,\n부동산의 본질적 가치를 발견하고 정확한 평가로 시장에 기여하는 전문가가 되겠습니다.",
-    profileImage: "/uploads/hero-profile-1764996963469.jpg",
+    title: "- 가치와 데이터를 연결하고싶은 예비 감정평가사",
+    description: " 전통적인 경매분석 경험 위에 빅데이터라는 새로운 시각을 더하여 부동산의 본질적인 가치를 찾으려 노력하고 있습니다. 정확한 감정평가로 시장에 기여하는 것이 제 목표입니다.\n\n",
+    profileImage: "/uploads/hero-profile-1761477237286.png",
     backgroundImage: "",
     backgroundVideo: "",
     backgroundOpacity: 0.1,
@@ -199,18 +199,16 @@ export function Hero() {
 
   return (
     <EditableBackground
-      image={"/image/프롬테크 사진.jpg" }
-    video={backgroundData?.video || ''}
-    color={backgroundData?.color || ''}
-      opacity={backgroundData?.opacity || 0.1}
-    // 🚨 1. color를 {''}로 고정
-    onChange={(data) => {
+      image={backgroundData?.image || ""}
+      video={backgroundData?.video || ""}
+      color={''} // backgroundData?.color || '' 대신 ''로 변경
+      opacity={0}
+      onChange={(data) => {
         const newData = {
-            image: backgroundData?.image || '',
-            video: backgroundData?.video || '',
-            // 🚨 2. 저장 데이터에서도 color를 ""로 고정
-            color: '', 
-            opacity: backgroundData?.opacity || 0.1,
+          image: backgroundData?.image || "",
+          video: backgroundData?.video || "",
+          color: backgroundData?.color || "",
+          opacity: backgroundData?.opacity || 0.1,
           ...data
         }
         setBackgroundData(newData)
@@ -231,29 +229,29 @@ export function Hero() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* 왼쪽: 텍스트 내용 */}
-           <div className="order-2 md:order-1 bg-white/90 rounded-lg p-8 backdrop-blur-sm">
-              <h2 className="text-3xl font-bold mb-2 text-black">
+            <div className="order-2 md:order-1">
+              <h2 className="text-3xl font-bold mb-2">
                 <EditableText
                   value={heroInfo.greeting}
                   onChange={(value) => updateHeroInfo('greeting', value)}
                   storageKey="hero-greeting"
                 />
               </h2>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-black">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4">
                 <EditableText
                   value={heroInfo.name}
                   onChange={(value) => updateHeroInfo('name', value)}
                   storageKey="hero-name"
                 />
               </h1>
-              <p className="text-2xl mb-4 text-gray-800">
+              <p className="text-2xl mb-4 text-muted-foreground">
                 <EditableText
                   value={heroInfo.title}
                   onChange={(value) => updateHeroInfo('title', value)}
                   storageKey="hero-title"
                 />
               </p>
-              <p className="text-xl mb-8 text-gray-700">
+              <p className="text-xl mb-8 text-muted-foreground">
                 <EditableText
                   value={heroInfo.description}
                   onChange={(value) => updateHeroInfo('description', value)}

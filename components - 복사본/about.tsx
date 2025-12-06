@@ -9,8 +9,6 @@ import { EditableMedia } from "@/components/editable/editable-media"
 import { EditableBackground } from "@/components/editable/editable-background"
 import { useInlineEditor } from "@/contexts/inline-editor-context"
 import { COMMON_STYLES } from "@/lib/constants"
-import { MyStoryGallery } from "@/components/my-story-gallery"
-import { LifeGraph } from "@/components/life-graph"
 
 // 사용 가능한 아이콘들 - 경험 카드용
 const AVAILABLE_ICONS = {
@@ -102,11 +100,11 @@ export function About() {
     subtitle: "不狂不及",
     description: "어떤 일에 미친 듯이 몰두하지 않으면, 원하는 경지나 목표에 도달할 수 없다는 뜻입니다",
     background: {"image":"","video":"","color":"","opacity":0.1},
-    experienceCards: [{"icon":"graduation","title":"황지고등학교","period":"2019-2021","description":"일반고 (학교 부회장)"},{"icon":"graduation","title":"단국대학교","period":"2022- 현재","description":"도시계획부동산학부"},{"icon":"award","title":"강원도 도지사배 축구 리그 청소년부 동상","period":"2016","description":"설명을 입력하세요"},{"icon":"award","title":"강원도 남북 통일 웅변 대회 금상","period":"2020","description":"설명을 입력하세요"},{"icon":"award","title":"강원도 생할체육대회 검도 부문 금상 외 8개","period":"2010 - 2012","description":"설명을 입력하세요"},{"icon":"award","title":"강원도 학생 영어 스피킹 대회 은상 외 2개","period":"2021","description":"설명을 입력하세요"},{"icon":"trophy","title":"투자자산운용사 자격 취득","period":"2025","description":"설명을 입력하세요"},{"icon":"trophy","title":"공인중개사 1차 합격","period":"2025","description":"설명을 입력하세요"},{"icon":"user","title":"해병대 병 1302기 전역","period":"2025","description":"설명을 입력하세요"}],
+    experienceCards: [{"icon":"graduation","title":"단국대학교","period":"2022 - 현재","description":"도시계획부동산학부"},{"icon":"trophy","title":"","period":"2016 - 2020","description":"전공 및 학위"},{"icon":"award","title":"자격증/수상","period":"2021","description":"설명을 입력하세요"}],
     skills: [{"icon":"star","title":"목표 지향성 및 강한 실행력","description":"목표를 성과로 만드는 실행력 축구선수로서 '강원도 대회 우승'이라는 목표를 달성했던 끈기와 열정은 저의 가장 큰 자산입니다. 이러한 실행력은 '투자자산운용사' 취득과 '공인중개사 1차' 합격이라는 학문적 성과로 이어졌습니다. 저는 목표한 것은 반드시 이뤄냅니다."},{"icon":"star","title":"데이터 분석 및 시장 이해","description":"데이터와 법률에 근거한 분석력 미래의 감정평가사는 '감'이 아닌 '데이터'로 말해야 한다고 믿습니다. 투자자산운용사로서 배운 거시 경제 지식과 공인중개사로서 갖춘 법률 지식을 바탕으로, 경매분석과 빅데이터를 활용한 시장 분석에 집중하고 있습니다."},{"icon":"star","title":"압박감 속에서의 빠른 판단력","description":"복잡함 속에서 핵심을 꿰뚫는 판단력 필드 위에서 상대방을 분석하고 승리를 계획했던 경험은, 복잡한 시장 데이터 속에서 '진짜 가치'를 찾아내는 감정평가사의 통찰력과 맞닿아 있습니다. 어떤 압박 속에서도 흔들리지 않고 최적의 판단을 내릴 자신이 있습니다.\n"}],
     storyTitle: "나의 이야기",
     story: ["저의 10대는 '승리'를 향한 땀으로 가득 찼습니다.","검도복을 입고, 때로는 축구 유니폼을 입고 필드를 누볐습니다.","치열한 승부의 세계에서 '목표 달성'을 위한 끈기를 배웠습니다.","하지만 저는 '다른 필드'에서의 승리를 위해 과감히 펜을 잡았습니다.","운동선수의 '집요함'과 '승부욕'은,","'공부'라는 새로운 필드에서 가장 강력한 무기가 되었습니다.","그 '끈기'는 저를 단국대학교 도시계획부동산학부로 이끌었습니다.","그리고 '감정평가사'라는 명확한 다음 목표를 갖게 했습니다.","저는 '감'이 아닌 '데이터'로 말하는 전문가가 될 것입니다.","냉철한 '경매 분석'과 '빅데이터'로 시장의 흐름을 읽는 것에 매료되었습니다.","필드 위에서 승리를 분석했듯, 데이터 속에서 '진짜 가치'를 찾아내겠습니다."],
-    storyImage: "/uploads/about-image-1764154959683.jpg",
+    storyImage: "",
     hobbies: ["☕ 경매 물건 찾아보기","🏃 운동 ","📚 독서","🎨 전시회 관람","✈️ 여행"]
   }
   
@@ -257,9 +255,9 @@ export function About() {
             {/* 경험 카드들 */}
             {aboutInfo.experienceCards?.map((card, index) => {
               const Icon = AVAILABLE_ICONS[card.icon as keyof typeof AVAILABLE_ICONS] || Briefcase
-                return (
+               (
                 <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 relative">
-                    <CardContent className="p-6">
+                  <CardContent className="p-6">
                     {isEditMode && (
                       <button
                         onClick={() => removeExperienceCard(index)}
@@ -321,15 +319,6 @@ export function About() {
               <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
                 핵심 역량
               </h3>
-              {/* ✅ 세 블록 전체를 덮는 긴 요약 박스 */}
-    <div className="mb-6">
-      <div className="w-full bg-white/90 rounded-2xl shadow-soft-lg border border-gray-200 px-10 py-5 text-center">
-        <p className="text-base md:text-lg font-semibold text-gray-900 leading-relaxed">
-          불광불급의 태도로 목표를 끝까지 밀어붙이며, 데이터와 시장을 집요하게 탐구해
-          미래의 부동산 가치를 선제적으로 읽어낼 수 있습니다.
-        </p>
-      </div>
-    </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {aboutInfo.skills.map((skill, index) => {
                   const Icon = SKILL_ICONS[skill.icon as keyof typeof SKILL_ICONS] || Trophy
@@ -364,8 +353,6 @@ export function About() {
                     </div>
                   )
                 })}
-
-              
                 {isEditMode && (
                   <div 
                     className="text-center border-2 border-dashed border-muted-foreground/30 rounded-lg p-6 flex items-center justify-center cursor-pointer hover:border-primary transition-all"
@@ -381,59 +368,65 @@ export function About() {
             </div>
           )}
 
-          {/* 자기소개 상세 - 갤러리 추가 */}
-{(aboutInfo.story.length > 0 || isEditMode) && (
-  <div className="bg-card rounded-2xl shadow-lg overflow-hidden">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-foreground mb-4">
-          <EditableText
-            value={aboutInfo.storyTitle}
-            onChange={(value) => updateAboutInfo('storyTitle', value)}
-            storageKey="about-storyTitle"
-          />
-        </h3>
-        {aboutInfo.story.map((paragraph, index) => (
-          <div key={index} className="relative mb-4">
-            {isEditMode && (
-              <button
-                onClick={() => removeStory(index)}
-                className={COMMON_STYLES.deleteButton}
-              >
-                <X className={COMMON_STYLES.deleteIcon} />
-              </button>
-            )}
-            <p className="text-muted-foreground leading-relaxed">
-              <EditableText
-                value={paragraph}
-                onChange={(value) => updateStory(index, value)}
-                storageKey={`about-story-${index}`}
-                multiline
-              />
-            </p>
-          </div>
-        ))}
-        {isEditMode && (
-          <button
-            onClick={addStory}
-            className="mt-2 px-4 py-2 border border-dashed border-muted-foreground/30 rounded-lg hover:border-primary transition-all"
-          >
-            <Plus className="h-4 w-4 inline mr-2" />
-            문단 추가
-          </button>
-        )}
-      </div>
-      
-  {/* 오른쪽: 갤러리 */}
-   <MyStoryGallery />
-      
-    </div>
-  
-  {/* 인생 그래프 */}
-  <LifeGraph />
-  </div>
-)}
-    
+          {/* 자기소개 상세 */}
+          {(aboutInfo.story.length > 0 || isEditMode) && (
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">
+                    <EditableText
+                      value={aboutInfo.storyTitle}
+                      onChange={(value) => updateAboutInfo('storyTitle', value)}
+                      storageKey="about-storyTitle"
+                    />
+                  </h3>
+                  {aboutInfo.story.map((paragraph, index) => (
+                    <div key={index} className="relative mb-4">
+                      {isEditMode && (
+                        <button
+                          onClick={() => removeStory(index)}
+                          className={COMMON_STYLES.deleteButton}
+                        >
+                          <X className={COMMON_STYLES.deleteIcon} />
+                        </button>
+                      )}
+                      <p className="text-muted-foreground leading-relaxed">
+                        <EditableText
+                          value={paragraph}
+                          onChange={(value) => updateStory(index, value)}
+                          storageKey={`about-story-${index}`}
+                          multiline
+                        />
+                      </p>
+                    </div>
+                  ))}
+                  {isEditMode && (
+                    <button
+                      onClick={addStory}
+                      className="mt-2 px-4 py-2 border border-dashed border-muted-foreground/30 rounded-lg hover:border-primary transition-all"
+                    >
+                      <Plus className="h-4 w-4 inline mr-2" />
+                      문단 추가
+                    </button>
+                  )}
+                </div>
+                
+                {/* 이미지 영역 */}
+                <div className="relative w-full h-full min-h-[500px] lg:min-h-full">
+                  <EditableMedia
+                    src={aboutInfo.storyImage}
+                    onChange={(src) => updateAboutInfo('storyImage', src)}
+                    type="image"
+                    storageKey="about-storyImage"
+                    className="w-full h-full object-cover"
+                    alt="소개 이미지"
+                    purpose="about-image"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* 취미 & 관심사 */}
           {(aboutInfo.hobbies.length > 0 || isEditMode) && (
             <div className="mt-16 text-center">
