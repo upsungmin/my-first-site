@@ -40,7 +40,7 @@ export function Contact() {
     experience: "3학년",
     phone: "010-5592-8267",
     email: "gmrgud03040@naver.com",
-    website: "",
+    website: "gmrgud03040@naver.com",
     location: "경기도 용인시 죽전동 1246-2 트윈빌 401호",
     workTime: "09-18",
     responseTime: "30초 내 응답",
@@ -56,7 +56,13 @@ export function Contact() {
   }
   
   // 소셜 링크 기본값 (배열 형태로 변경)
-  const defaultSocialLinks: { name: string; icon: string; url: string }[] = []
+  const defaultSocialLinks: { name: string; icon: string; url: string }[] = [
+    {
+      "name": "instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/accounts/onetap/?next=%2F"
+    }
+  ]
   
   const [contactInfo, setContactInfo] = useState(defaultInfo)
   const [socialLinks, setSocialLinks] = useState(defaultSocialLinks)

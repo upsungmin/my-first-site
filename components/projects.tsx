@@ -14,8 +14,8 @@ export function Projects() {
   const { getData, saveData, isEditMode, saveToFile } = useInlineEditor()
   // 기본 데이터
   const defaultInfo = {
-    title: "프로젝트",
-    subtitle: "프로젝트",
+    title: "Project",
+    subtitle: "경매와 입지, 상권분석을 중심으로",
     initialDisplay: 6,
     loadMoreCount: 3,
     background: {"image":"","video":"","color":"","opacity":0.1},

@@ -92,10 +92,10 @@ export function Hero() {
   const defaultSocialLinks = [{"name":"instagram","icon":"instagram","url":"https://www.instagram.com/accounts/onetap/?next=%2F"},{"name":"naver","icon":"mail","url":"gmrgud03040@naver.com"}]
   
   const defaultInfo = {
-    greeting: "예비 감정평가사",
+    greeting: "예비 부동산 전문가",
     name: "위성민",
     title: "남다른 열정으로 가치와 데이터를 연결하겠습니다.",
-    description: "경매 분석의 정통성과 빅데이터의 통찰력으로,\n부동산의 본질적 가치를 발견하고 정확한 평가로 시장에 기여하는 전문가가 되겠습니다.",
+    description: "데이터 기반의 통찰과 깊이 있는 권리 분석으로, 시장에 정확한 가치를 제시하겠습니다.",
     profileImage: "/uploads/hero-profile-1764996963469.jpg",
     backgroundImage: "",
     backgroundVideo: "",
