@@ -231,7 +231,7 @@
   .min-h-screen {
     min-height: 100dvh;
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
       url('/image/프롬테크 사진 2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
