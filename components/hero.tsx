@@ -94,14 +94,14 @@ export function Hero() {
   const defaultInfo = {
     greeting: "예비 부동산 전문가",
     name: "위성민",
-    title: "남다른 열정으로 가치와 데이터를 연결하겠습니다.",
+    title: "남다른 열정으로 증명하겠습니다.",
     description: "데이터 기반의 통찰과 깊이 있는 권리 분석으로, 시장에 정확한 가치를 제시하겠습니다.",
     profileImage: "/uploads/hero-profile-1764996963469.jpg",
     backgroundImage: "",
     backgroundVideo: "",
     backgroundOpacity: 0.1,
     projectButton: "프로젝트 보기",
-    background: {"image":"","video":"","color":"","opacity":0.1}
+    background: {"image":"/image/프롬테크 사진.jpg","video":"","color":"","opacity":0.8}
   }
 
   const [backgroundData, setBackgroundData] = useState<{ image: string; video: string; color: string; opacity: number } | null>(null)

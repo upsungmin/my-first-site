@@ -69,12 +69,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             dangerouslySetInnerHTML={{ __html: descriptionHtml }}
           />
 
-          {/* 🚨🚨🚨 DEBUG 박스: 이 부분이 2번 프로젝트의 pdfUrl 값을 출력합니다. 🚨🚨🚨 */}
-          <div style={{ marginTop: '20px', color: 'red', border: '1px solid red', padding: '10px' }}>
-            <p>DEBUG: PDF URL 값 = **{project.pdfUrl}**</p>
-            <p>DEBUG: 파일명 일치 여부 확인용입니다. 값이 비어있으면 데이터 문제입니다.</p>
-          </div>
-
+          
           {/* PDF 다운로드 버튼 출력 */}
          {project.pdfUrl && (
             <div style={{ marginTop: '40px', marginBottom: '40px', textAlign: 'center' }}>
