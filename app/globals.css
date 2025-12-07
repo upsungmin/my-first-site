@@ -7,7 +7,7 @@
 
 /* Tailwind v4 테마 설정 */
 @theme {
-  --color-background: hsl(0 0% 100%);
+  --color-background: hsl(0 0% 95%);
   --color-foreground: hsl(0 0% 3.9%);
   --color-card: hsl(0 0% 100%);
   --color-card-foreground: hsl(0 0% 3.9%);
@@ -31,7 +31,7 @@
 
 /* CSS 변수 (컴포넌트 호환성) */
 :root {
-  --background: 0 0% 100%;
+  --background: 0 0% 95%;
   --foreground: 0 0% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 0 0% 3.9%;
