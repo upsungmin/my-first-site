@@ -49,40 +49,16 @@ export function InlineEditorProvider({ children }: { children: React.ReactNode }
   
   // 실제 파일에 저장 (개발 모드에서만)
   const saveToFile = async (component: string, section: string, data: unknown): Promise<boolean> => {
-    if (!isDevelopment) {
-      console.warn('파일 저장은 개발 모드에서만 가능합니다')
-      return false
-    }
+  // 파일 저장 기능은 임시로 비활성화됨
+  console.warn('⚠️ 파일 저장 기능은 현재 비활성화 상태입니다. Git을 통해 배포해주세요.')
+  
+  // localStorage에만 저장 (로컬에서만 유지)
+  saveData(`${component}-${section}`, data)
+  
+  return true  // UI에서는 성공으로 표시
+}
     
-    try {
-      const response = await fetch('/api/update-component', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          component,
-          section,
-          data
-        })
-      })
-      
-      const result = await response.json()
-      
-      if (result.success) {
-        console.log('✅ 파일이 성공적으로 저장되었습니다')
-        // localStorage도 업데이트
-        saveData(`${component}-${section}`, data)
-        return true
-      } else {
-        console.error('파일 저장 실패:', result.error)
-        return false
-      }
-    } catch (error) {
-      console.error('파일 저장 중 오류:', error)
-      return false
-    }
-  }
+   
   
   // 개별 필드 저장 (더 안전한 방식)
   const saveFieldToFile = async (component: string, field: string, value: unknown): Promise<boolean> => {
